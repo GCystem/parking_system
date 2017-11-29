@@ -14,4 +14,15 @@
         } 
         // echo "DB Connected successfully";
 
+
+    /////////////////// Log Output     ////////////////////////
+
+        $log_file_name = "../../"."log";
+        date_default_timezone_set('America/Los_Angeles');
+
+        function outLog($sql, $log_file_name){
+            $log_content = "-- George Chen -- " . date("D M j G:i:s T Y") . "\n" . $sql . "\n\n";
+            file_put_contents($log_file_name, $log_content, FILE_APPEND);
+        }
+
 ?>

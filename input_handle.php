@@ -33,6 +33,7 @@
                 $call = mysqli_prepare($link, 'CALL updateTimeLimit(?,?,?)');
                 mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);
                 mysqli_stmt_execute($call);
+                // outLog($call, $log_file_name);
             }
             elseif(!empty($_POST['space_post'])){
                 $input1 = $_POST['space_in'];
