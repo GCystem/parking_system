@@ -74,12 +74,12 @@
 
             <form name="options" action="park_handle.php" method="post">
             <h3> Parking Space Monitoring </h3> 
-             <input type="radio" name="admin" value="employee_ch" checked> Check Employee Parking<br> 
+             <input type="radio" name="admin" value="employee_ch"> Check Employee Parking<br> 
              <input type="radio" name="admin" value="time_limit_ch"> Check Time Limit <br> 
              <input type="radio" name="admin" value="compact_ch"> Check Compact Parking <br> 
              <input type="radio" name="admin" value="disability_ch"> Check Disability Parking <br> 
              <input type="radio" name="admin" value="status_ch"> Check Stop-Using Parking <br> 
-             <br><input id="option_post" type="submit" value="Submit"><br>
+             <br><input type="submit" value="Submit"><br>
             </form>
             
             <br> <br>

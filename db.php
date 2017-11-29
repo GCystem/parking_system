@@ -25,4 +25,8 @@
             file_put_contents($log_file_name, $log_content, FILE_APPEND);
         }
 
+        function backHome(){
+            echo '<script>window.location.href = "admin_panel.php";</script>';
+        }
+
 ?>
