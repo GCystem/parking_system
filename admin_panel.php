@@ -29,7 +29,7 @@
             <br> <br>-->
             
             <form name="time_limit" action="input_handle.php" method="post">
-            <h3>Update Time Limit</h3>
+            <h3>1. Update Time Limit</h3>
             New Time Limit: <br><input type="text" name="time_limit_in" value="Enter New Time Limit"><br/><br/>
             Garage Number: <br><input type="text" name="time_limit_garage_in" value="G01"><br/><br/>
             Parking Space Number: <br><input type="text" name="time_limit_space_in" value="S01"><br/><br/>
@@ -37,7 +37,7 @@
             </form>
 
             <form name="space" action="input_handle.php" method="post">
-            <h3>Update Space Status</h3>
+            <h3>2. Update Space Status</h3>
             New Space Status: <br><input type="text" name="space_in" value="Select New Space Status"><br/><br/>
             Garage Number: <br><input type="text" name="space_garage_in" value="G01"><br/><br/>
             Parking Space Number: <br><input type="text" name="space_space_in" value="S01"><br/><br/>
@@ -45,7 +45,7 @@
             </form>
 
             <form name="employee" action="input_handle.php" method="post">
-            <h3>Update Employee Only</h3>
+            <h3>3. Update Employee Only</h3>
             New Employee Only: <br><input type="text" name="employee_in" value="Select New Employee Status"><br/><br/>
             Garage Number: <br><input type="text" name="employee_garage_in" value="G01"><br/><br/>
             Parking Space Number: <br><input type="text" name="employee_space_in" value="S01"><br/><br/>
@@ -53,7 +53,7 @@
             </form>
 
             <form name="space_area" action="input_handle.php" method="post">
-            <h3>Update Space Status By Area</h3>
+            <h3>4. Update Space Status By Area</h3>
             New Space Status: <br><input type="text" name="space_area_in" value="Select New Space Status"><br/><br/>
             Garage Number: <br><input type="text" name="space_area_garage_in" value="G01"><br/><br/>
             Parking Area Number: <br><input type="text" name="space_area_area_in" value="S01"><br/><br/>
@@ -61,25 +61,25 @@
             </form>
 
             <form name="space_garage" action="input_handle.php" method="post">
-            <h3>Update Space Status By Garage</h3>
+            <h3>5. Update Space Status By Garage</h3>
             New Space Status: <br><input type="text" name="space_garage_in" value="Select New Space Status"><br/><br/>
             Garage Number: <br><input type="text" name="space_garage_garage_in" value="G01"><br/><br/>
             <input name="space_garage_post" type="submit" value="Submit"><br/><br/>
             </form>
 
             <form name="remaining_space" action="input_handle.php" method="post">
-            <h3>Update Remaining Time By Space Number</h3>
+            <h3>6. Update Remaining Time By Space Number</h3>
             New Remaining Time: <br><input type="text" name="remaining_space_in" value="23:59:59"><br/><br/>
             Garage Number: <br><input type="text" name="remaining_space_garage_in" value="G01"><br/><br/>
             Parking Space Number: <br><input type="text" name="remaining_space_space_in" value="S01"><br/><br/>
             <input name="remaining_space_post" type="submit" value="Submit"><br/><br/>
             </form>
             
-            <form name="remaining_plate">
-            <h3>Update Remaining Time By Plate Number</h3>
+            <form name="remaining_plate" action="input_handle.php" method="post">
+            <h3>7. Update Remaining Time By Plate Number</h3>
             New Remaining Time: <br><input type="text" name="remaining_plate_in" value="23:59:59"><br/><br/>
             Garage Number: <br><input type="text" name="remaining_plate_garage_in" value="G01"><br/><br/>
-            Plate Number: <br><input type="text" name="remaining_plate_space_in" value="ABC-111"><br/><br/>
+            Plate Number: <br><input type="text" name="remaining_plate_plate_in" value="ABC-111"><br/><br/>
             <input name="remaining_plate_post" type="submit" value="Submit"><br/><br/>
             </form>
 

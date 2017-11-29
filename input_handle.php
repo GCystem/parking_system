@@ -84,10 +84,10 @@
                     echo $link->errno;
                 }
             }
-            elseif(!empty($_POST['remaining_plate'])){
+            elseif(!empty($_POST['remaining_plate_post'])){
                 $input1 = $_POST['remaining_plate_in'];
                 $input2 = $_POST['remaining_plate_garage_in'];
-                $input3 = $_POST['remaining_plate_space_in'];
+                $input3 = $_POST['remaining_plate_plate_in'];
               
                 $call = mysqli_prepare($link, 'CALL updateRemainPlate(?,?,?)');
                 mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);

@@ -4,7 +4,7 @@ DELIMITER $$
 CREATE PROCEDURE updateRemainPlate(
 	IN endTime time, 
     IN garageNum varchar(3),
-    IN plateNum varchar(3)
+    IN plateNum varchar(8)
 )
 BEGIN
     
