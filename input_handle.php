@@ -62,22 +62,44 @@
                 mysqli_stmt_execute($call);
             }
             elseif(!empty($_POST['space_garage_post'])){
-                echo '';
+                $input1 = $_POST['space_garage_in'];
+                $input2 = $_POST['space_garage_garage_in'];
+              
+                $call = mysqli_prepare($link, 'CALL updateSpaceGarage(?,?)');
+                mysqli_stmt_bind_param($call, 'ss', $input1, $input2);
+                mysqli_stmt_execute($call);
             }
-            elseif(!empty($_POST['remaining_space'])){
-                echo '';
+            elseif(!empty($_POST['remaining_space_post'])){
+                $input1 = $_POST['remaining_space_in'];
+                $input2 = $_POST['remaining_space_garage_in'];
+                $input3 = $_POST['remaining_space_space_in'];
+              
+                $call = mysqli_prepare($link, 'CALL updateRemainSpace(?,?,?)');
+                mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);
+                if(mysqli_stmt_execute($call)){
+                    echo 'TRUE';
+                }
+                else{
+                    echo 'FAIL<br>';
+                    echo $link->errno;
+                }
             }
             elseif(!empty($_POST['remaining_plate'])){
-                echo '';
+                $input1 = $_POST['remaining_plate_in'];
+                $input2 = $_POST['remaining_plate_garage_in'];
+                $input3 = $_POST['remaining_plate_space_in'];
+              
+                $call = mysqli_prepare($link, 'CALL updateRemainPlate(?,?,?)');
+                mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);
+                mysqli_stmt_execute($call);
             }
             else{
-                echo 'nothinn';
+                echo '<script>window.location.href = "admin_panel.php";</script>';
             }
 
-            
         }
         else{
-            // echo '<script>window.location.href = "admin_panel.php";</script>';
+            echo '<script>window.location.href = "admin_panel.php";</script>';
         }
 
 

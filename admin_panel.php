@@ -69,7 +69,7 @@
 
             <form name="remaining_space" action="input_handle.php" method="post">
             <h3>Update Remaining Time By Space Number</h3>
-            New Remaining Time: <br><input type="text" name="remaining_space_in" value="Enter New Remaining Time"><br/><br/>
+            New Remaining Time: <br><input type="text" name="remaining_space_in" value="23:59:59"><br/><br/>
             Garage Number: <br><input type="text" name="remaining_space_garage_in" value="G01"><br/><br/>
             Parking Space Number: <br><input type="text" name="remaining_space_space_in" value="S01"><br/><br/>
             <input name="remaining_space_post" type="submit" value="Submit"><br/><br/>
@@ -77,7 +77,7 @@
             
             <form name="remaining_plate">
             <h3>Update Remaining Time By Plate Number</h3>
-            New Remaining Time: <br><input type="text" name="remaining_plate_in" value="Enter New Remaining Time"><br/><br/>
+            New Remaining Time: <br><input type="text" name="remaining_plate_in" value="23:59:59"><br/><br/>
             Garage Number: <br><input type="text" name="remaining_plate_garage_in" value="G01"><br/><br/>
             Plate Number: <br><input type="text" name="remaining_plate_space_in" value="ABC-111"><br/><br/>
             <input name="remaining_plate_post" type="submit" value="Submit"><br/><br/>
