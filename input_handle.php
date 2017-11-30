@@ -21,6 +21,8 @@
 
                 $call = mysqli_prepare($link, 'CALL updateTimeLimit(?,?,?)');
                 mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);
+                $log = 'CALL updateTimeLimit('.$input1.','.$input2.','.$input3.');';
+                outLog($log, $log_file_name);
                 mysqli_stmt_execute($call);
 
                 echo '<br><br><h3> AFTER </h3><br>';
@@ -33,7 +35,7 @@
                 echo '<br>Space Number: '.$new['space_no'];
 
                 echo '<br><a href="admin_panel.php">Back</a>';
-                // outLog($call, $log_file_name);
+                
             }
             elseif(!empty($_POST['space_post'])){
                 $input1 = $_POST['space_in'];
@@ -51,6 +53,8 @@
               
                 $call = mysqli_prepare($link, 'CALL updateSpace(?,?,?)');
                 mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);
+                $log = 'CALL updateSpace('.$input1.','.$input2.','.$input3.');';
+                outLog($log, $log_file_name);
                 mysqli_stmt_execute($call);
 
                 echo '<br><br><h3> AFTER </h3><br>';
@@ -63,7 +67,7 @@
                 echo '<br>Space Number: '.$new['space_no'];
 
                 echo '<br><a href="admin_panel.php">Back</a>';
-                // outLog($call, $log_file_name);
+                
             }
             elseif(!empty($_POST['employee_post'])){
                 $input1 = $_POST['employee_in'];
@@ -81,6 +85,8 @@
 
                 $call = mysqli_prepare($link, 'CALL updateEmployee(?,?,?)');
                 mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);
+                $log = 'CALL updateEmployee('.$input1.','.$input2.','.$input3.');';
+                outLog($log, $log_file_name);
                 mysqli_stmt_execute($call);
 
                 echo '<br><br><h3> AFTER </h3><br>';
@@ -93,7 +99,7 @@
                 echo '<br>Space Number: '.$new['space_no'];
 
                 echo '<br><a href="admin_panel.php">Back</a>';
-                // outLog($call, $log_file_name);
+                
             }
             elseif(!empty($_POST['space_area_post'])){
                 $input1 = $_POST['space_area_in'];
@@ -118,6 +124,8 @@
               
                 $call = mysqli_prepare($link, 'CALL updateSpaceArea(?,?,?)');
                 mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);
+                $log = 'CALL updateSpaceArea('.$input1.','.$input2.','.$input3.');';
+                outLog($log, $log_file_name);
                 mysqli_stmt_execute($call);
 
                 $q2 = 'SELECT status, garage_no, space_no, area FROM parking_space WHERE garage_no = "'.$input2.'" AND area = "'.$input3. '";';
@@ -136,7 +144,7 @@
                 }
 
                 echo '<br><a href="admin_panel.php">Back</a>';
-                // outLog($call, $log_file_name);
+                
             }
             elseif(!empty($_POST['space_garage_post'])){
                 $input1 = $_POST['space_garage_in'];
@@ -158,6 +166,8 @@
               
                 $call = mysqli_prepare($link, 'CALL updateSpaceGarage(?,?)');
                 mysqli_stmt_bind_param($call, 'ss', $input1, $input2);
+                $log = 'CALL updateSpaceGarage('.$input1.','.$input2.');';
+                outLog($log, $log_file_name);
                 mysqli_stmt_execute($call);
 
                 $q2 = 'SELECT status, garage_no, space_no FROM parking_space WHERE garage_no = "'.$input2.'";';
@@ -175,16 +185,16 @@
                 }
 
                 echo '<br><a href="admin_panel.php">Back</a>';
-                // outLog($call, $log_file_name);
+                
             }
             elseif(!empty($_POST['remaining_space_post'])){
                 $input1 = $_POST['remaining_space_in'];
                 $input2 = $_POST['remaining_space_garage_in'];
                 $input3 = $_POST['remaining_space_space_in'];
-              
-                // TODO
+
                 echo '<h3> BEFORE </h3><br>';
-                $q1 = 'SELECT estimated_end_time, garage_no, space_no FROM park WHERE garage_no = "'.$input2.'" AND space_no = "'.$input3. '";';
+                $q1 = 'SELECT estimated_end_time, garage_no, space_no FROM garage_current_time_state WHERE garage_no = "'.$input2.'" AND space_no = "'.$input3. '";';
+
                 $select1 = mysqli_query($link, $q1);
                 
                 $old = mysqli_fetch_assoc($select1);
@@ -195,28 +205,57 @@
 
                 $call = mysqli_prepare($link, 'CALL updateRemainSpace(?,?,?)');
                 mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);
-                if(mysqli_stmt_execute($call)){
-                    echo 'TRUE';
-                }
-                else{
-                    echo 'FAIL<br>';
-                    echo $link->errno;
-                }
+                $log = 'CALL updateRemainSpace('.$input1.','.$input2.','.$input3.');';
+                outLog($log, $log_file_name);
+                mysqli_stmt_execute($call);
+
+                echo '<h3> AFTER </h3><br>';
+                $q2 = 'SELECT estimated_end_time, garage_no, space_no FROM garage_current_time_state WHERE garage_no = "'.$input2.'" AND space_no = "'.$input3. '";';
+
+                $select2 = mysqli_query($link, $q2);
+                
+                $new = mysqli_fetch_assoc($select2);
+                echo 'Remaining Time: '.$new['estimated_end_time'];
+                echo '<br>Garage Number: '.$new['garage_no'];
+                echo '<br>Space Number: '.$new['space_no'];
+
 
                 echo '<br><a href="admin_panel.php">Back</a>';
-                // outLog($call, $log_file_name);
+                
             }
             elseif(!empty($_POST['remaining_plate_post'])){
                 $input1 = $_POST['remaining_plate_in'];
                 $input2 = $_POST['remaining_plate_garage_in'];
                 $input3 = $_POST['remaining_plate_plate_in'];
+
+                echo '<h3> BEFORE </h3><br>';
+                $q1 = 'SELECT estimated_end_time, garage_no, plate_no FROM garage_current_time_state WHERE garage_no = "'.$input2.'" AND plate_no = "'.$input3. '";';
+
+                $select1 = mysqli_query($link, $q1);
+                
+                $old = mysqli_fetch_assoc($select1);
+                echo 'Remaining Time: '.$old['estimated_end_time'];
+                echo '<br>Garage Number: '.$old['garage_no'];
+                echo '<br>Plate Number: '.$old['plate_no'];
               
                 $call = mysqli_prepare($link, 'CALL updateRemainPlate(?,?,?)');
                 mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);
+                $log = 'CALL updateRemainPlate('.$input1.','.$input2.','.$input3.');';
+                outLog($log, $log_file_name);
                 mysqli_stmt_execute($call);
 
+                echo '<h3> AFTER </h3><br>';
+                $q2 = 'SELECT estimated_end_time, garage_no, plate_no FROM garage_current_time_state WHERE garage_no = "'.$input2.'" AND plate_no = "'.$input3. '";';
+
+                $select2 = mysqli_query($link, $q2);
+                
+                $new = mysqli_fetch_assoc($select2);
+                echo 'Remaining Time: '.$new['estimated_end_time'];
+                echo '<br>Garage Number: '.$new['garage_no'];
+                echo '<br>Plate Number: '.$new['plate_no'];
+
                 echo '<br><a href="admin_panel.php">Back</a>';
-                // outLog($call, $log_file_name);
+                
             }
             else{
                 echo '<script>window.location.href = "admin_panel.php";</script>';

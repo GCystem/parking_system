@@ -17,7 +17,7 @@
 
     /////////////////// Log Output     ////////////////////////
 
-        $log_file_name = "../../"."log";
+        $log_file_name = "log";
         date_default_timezone_set('America/Los_Angeles');
 
         function outLog($sql, $log_file_name){
