@@ -4,6 +4,7 @@
     require "db.php";
 ?>
 <html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
     <head>
 
         <title>
@@ -19,7 +20,7 @@
             
             <form name="time_limit" action="input_handle.php" method="post">
             <h3>1. Update Time Limit</h3>
-            New Time Limit: <br><input type="text" name="time_limit_in" value="Enter New Time Limit"><br/><br/>
+            New Time Limit: <br><input type="text" name="time_limit_in" value="60"><br/><br/>
             Garage Number: <br><input type="text" name="time_limit_garage_in" value="G01"><br/><br/>
             Parking Space Number: <br><input type="text" name="time_limit_space_in" value="S01"><br/><br/>
             <input name="time_limit_post" type="submit" value="Submit"><br/><br/>
@@ -27,7 +28,7 @@
 
             <form name="space" action="input_handle.php" method="post">
             <h3>2. Update Space Status</h3>
-            New Space Status: <br><input type="text" name="space_in" value="Select New Space Status"><br/><br/>
+            New Space Status: <br><input type="text" name="space_in" value="T"><br/><br/>
             Garage Number: <br><input type="text" name="space_garage_in" value="G01"><br/><br/>
             Parking Space Number: <br><input type="text" name="space_space_in" value="S01"><br/><br/>
             <input name="space_post" type="submit" value="Submit"><br/><br/>
@@ -35,7 +36,7 @@
 
             <form name="employee" action="input_handle.php" method="post">
             <h3>3. Update Employee Only</h3>
-            New Employee Only: <br><input type="text" name="employee_in" value="Select New Employee Status"><br/><br/>
+            New Employee Only: <br><input type="text" name="employee_in" value="T"><br/><br/>
             Garage Number: <br><input type="text" name="employee_garage_in" value="G01"><br/><br/>
             Parking Space Number: <br><input type="text" name="employee_space_in" value="S01"><br/><br/>
             <input name="employee_post" type="submit" value="Submit"><br/><br/>
@@ -43,15 +44,15 @@
 
             <form name="space_area" action="input_handle.php" method="post">
             <h3>4. Update Space Status By Area</h3>
-            New Space Status: <br><input type="text" name="space_area_in" value="Select New Space Status"><br/><br/>
+            New Space Status: <br><input type="text" name="space_area_in" value="T"><br/><br/>
             Garage Number: <br><input type="text" name="space_area_garage_in" value="G01"><br/><br/>
-            Parking Area Number: <br><input type="text" name="space_area_area_in" value="S01"><br/><br/>
+            Parking Area Number: <br><input type="text" name="space_area_area_in" value="A"><br/><br/>
             <input name="space_area_post" type="submit" value="Submit"><br/><br/>
             </form>
 
             <form name="space_garage" action="input_handle.php" method="post">
             <h3>5. Update Space Status By Garage</h3>
-            New Space Status: <br><input type="text" name="space_garage_in" value="Select New Space Status"><br/><br/>
+            New Space Status: <br><input type="text" name="space_garage_in" value="T"><br/><br/>
             Garage Number: <br><input type="text" name="space_garage_garage_in" value="G01"><br/><br/>
             <input name="space_garage_post" type="submit" value="Submit"><br/><br/>
             </form>

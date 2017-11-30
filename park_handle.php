@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-      
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 <?php 
         require "db.php";
 
@@ -27,7 +27,7 @@
                 echo '<h3> Violating Vehicles </h3><br>';
                 while($row = mysqli_fetch_assoc($result)){
                     
-                    echo '<h3>'.$i.' </h3>';
+                    echo '<h3>'.$i.'. </h3>';
                     echo 'Garage Number: '. $row['garage_no'].'<br>';
                     echo 'Space Number: '. $row['space_no'].'<br>';
                     echo 'Plate Number: '. $row['plate_no'].'<br>';
@@ -59,7 +59,7 @@
                 echo '<h3> Violating Vehicles </h3><br>';
                 while($row = mysqli_fetch_assoc($result)){
                     
-                    echo '<h3>'.$i.' </h3>';
+                    echo '<h3>'.$i.'. </h3>';
                     echo 'Garage Number: '. $row['garage_no'].'<br>';
                     echo 'Space Number: '. $row['space_no'].'<br>';
                     echo 'Plate Number: '. $row['plate_no'].'<br>';
