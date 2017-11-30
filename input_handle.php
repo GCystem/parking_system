@@ -23,7 +23,7 @@
                 mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);
                 mysqli_stmt_execute($call);
 
-                echo '<h3> AFTER </h3><br>';
+                echo '<br><br><h3> AFTER </h3><br>';
                 $q2 = 'SELECT time_limit, garage_no, space_no FROM parking_space WHERE garage_no = "'.$input2.'" AND space_no = "'.$input3. '";';
                 $select2 = mysqli_query($link, $q2);
                 
@@ -53,7 +53,7 @@
                 mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);
                 mysqli_stmt_execute($call);
 
-                echo '<h3> AFTER </h3><br>';
+                echo '<br><br><h3> AFTER </h3><br>';
                 $q2 = 'SELECT status, garage_no, space_no FROM parking_space WHERE garage_no = "'.$input2.'" AND space_no = "'.$input3. '";';
                 $select2 = mysqli_query($link, $q2);
                 
@@ -83,7 +83,7 @@
                 mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);
                 mysqli_stmt_execute($call);
 
-                echo '<h3> AFTER </h3><br>';
+                echo '<br><br><h3> AFTER </h3><br>';
                 $q2 = 'SELECT employee_only, garage_no, space_no FROM parking_space WHERE garage_no = "'.$input2.'" AND space_no = "'.$input3. '";';
                 $select2 = mysqli_query($link, $q2);
                 
@@ -164,7 +164,7 @@
                 $result = mysqli_query($link, $q2);
                 $count = mysqli_num_rows($result);
                 $i = 1;
-                echo '<h3> AFTER </h3><br>';
+                echo '<br><br><h3> AFTER </h3><br>';
                 while($row = mysqli_fetch_assoc($result)){
                     
                     echo '<h3>'.$i.'. </h3>';
@@ -182,6 +182,17 @@
                 $input2 = $_POST['remaining_space_garage_in'];
                 $input3 = $_POST['remaining_space_space_in'];
               
+                // TODO
+                echo '<h3> BEFORE </h3><br>';
+                $q1 = 'SELECT estimated_end_time, garage_no, space_no FROM park WHERE garage_no = "'.$input2.'" AND space_no = "'.$input3. '";';
+                $select1 = mysqli_query($link, $q1);
+                
+                $old = mysqli_fetch_assoc($select1);
+                echo 'Remaining Time: '.$old['estimated_end_time'];
+                echo '<br>Garage Number: '.$old['garage_no'];
+                echo '<br>Space Number: '.$old['space_no'];
+
+
                 $call = mysqli_prepare($link, 'CALL updateRemainSpace(?,?,?)');
                 mysqli_stmt_bind_param($call, 'sss', $input1, $input2, $input3);
                 if(mysqli_stmt_execute($call)){

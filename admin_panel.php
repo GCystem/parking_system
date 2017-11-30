@@ -14,10 +14,8 @@
 
     <body>
         <center>
-            <h1 id="hello"> Admin Panel </h1>
-        </center>
-
-            
+            <h1 id="hello"> Admin Panel </h1><br>
+                    
             <form name="time_limit" action="input_handle.php" method="post">
             <h3>1. Update Time Limit</h3>
             New Time Limit: <br><input type="text" name="time_limit_in" value="60"><br/><br/>
@@ -77,13 +75,12 @@
             <h3> Parking Space Monitoring </h3> 
              <input type="radio" name="admin" value="employee_ch"> Check Employee Parking<br> 
              <input type="radio" name="admin" value="time_limit_ch"> Check Time Limit <br> 
-             <input type="radio" name="admin" value="compact_ch"> Check Compact Parking <br> 
-             <input type="radio" name="admin" value="disability_ch"> Check Disability Parking <br> 
              <input type="radio" name="admin" value="status_ch"> Check Stop-Using Parking <br> 
              <br><input type="submit" value="Submit"><br>
             </form>
             
             <br> <br>
+            </center>
     </body>
 
 </html>

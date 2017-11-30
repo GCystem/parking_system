@@ -3,20 +3,6 @@
 <?php 
         require "db.php";
 
-       
-        // if(!$res){
-        //     echo $link->errno;
-        //     echo EEEERRRRRRORRRRRRR;
-        // }
-        // else{
-        //     // echo var_dump($res->fetch_assoc());
-        //     /* fetch associative array */
-        //     // while ($row = $res->fetch_assoc()) {
-        //     //     echo var_dump($row);
-        //     // }
-        //     echo $res;
-        // }
-
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             $option = $_POST['admin'];
 
@@ -44,12 +30,6 @@
             }
             elseif($option == 'time_limit_ch'){
 
-            }
-            elseif($option == 'compact_ch'){
-                echo '<script>window.location.href = "admin_panel.php";</script>';
-            }
-            elseif($option == 'disability_ch'){
-                echo '<script>window.location.href = "admin_panel.php";</script>';
             }
             elseif($option == 'status_ch'){
                 $chart = array();
